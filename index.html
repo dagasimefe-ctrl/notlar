@@ -1313,11 +1313,11 @@ async function botGonder(){
   botKaydır();
 
   try{
-    const res = await fetch('/.netlify/functions/claude',{
+    const res = await fetch('/api/gemini',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        
         max_tokens: 1500,
         system: BOT_SYS(botZorluk, botDers),
         messages: botMesajlar.filter(m=>!m.id&&!m.loading).map(m=>({role:m.rol, content:m.content}))
